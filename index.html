@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slovenija · Slovenia — Lions & Leo Distrikt 129</title>
+<meta name="description" content="Slovenija — pristna narava, sožitje, Lions in Leo klubi. Slovenia — authentic nature, harmony, Lions and Leo clubs. District 129.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap');
+:root {
+  --green-deep:#1a4a2e; --green-mid:#2d7a4f; --green-soft:#e8f5ee;
+  --gold:#c8a84b; --gold-light:#f7f0df;
+  --sky:#3a7bb5; --leo-blue:#1e4fa3; --leo-light:#ddeafb;
+  --text:#1a1a1a; --muted:#5a5a5a; --border:#e0e0d8; --bg:#fafaf7; --white:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.7}
+
+/* LANG SWITCHER */
+.lang-bar{background:#111;display:flex;justify-content:flex-end;align-items:center;padding:6px 2rem;gap:8px}
+.lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.7);border-radius:5px;padding:4px 12px;font-size:12px;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.15s}
+.lang-btn.active{background:var(--gold);border-color:var(--gold);color:#1a1a1a;font-weight:600}
+.lang-btn:hover:not(.active){background:rgba(255,255,255,0.1);color:#fff}
+[lang-content="en"]{display:none}
+[lang-content="sl"]{display:block}
+body.lang-en [lang-content="en"]{display:block}
+body.lang-en [lang-content="sl"]{display:none}
+
+/* NAV */
+nav{background:var(--green-deep);position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:56px;gap:1rem}
+.nav-brand{color:var(--gold);font-family:'Playfair Display',serif;font-size:17px;font-weight:600;white-space:nowrap;text-decoration:none}
+.nav-links{display:flex;gap:4px;flex-wrap:wrap}
+.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:6px 12px;border-radius:6px;transition:background 0.15s}
+.nav-links a:hover{background:rgba(255,255,255,0.12);color:#fff}
+
+/* HERO */
+.hero{background:var(--green-deep);color:white;text-align:center;padding:5rem 1.5rem 4rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,0.02) 40px,rgba(255,255,255,0.02) 80px)}
+.hero-flag{font-size:52px;margin-bottom:1rem;position:relative}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(26px,5vw,46px);font-weight:600;line-height:1.15;margin-bottom:1rem;position:relative}
+.hero h1 span{color:var(--gold)}
+.hero-sub{font-size:16px;color:rgba(255,255,255,0.78);max-width:620px;margin:0 auto 1.5rem;font-weight:300;position:relative}
+.hero-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;position:relative;margin-bottom:2rem}
+.htag{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.9);border-radius:20px;padding:5px 14px;font-size:13px}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative}
+.btn-primary{background:var(--gold);color:var(--green-deep);border:none;border-radius:8px;padding:12px 24px;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:opacity 0.15s}
+.btn-primary:hover{opacity:0.88}
+.btn-outline{background:transparent;color:white;border:1.5px solid rgba(255,255,255,0.4);border-radius:8px;padding:12px 24px;font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:background 0.15s}
+.btn-outline:hover{background:rgba(255,255,255,0.1)}
+
+/* SECTIONS */
+section{padding:3.5rem 1.5rem;max-width:960px;margin:0 auto}
+.section-eyebrow{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--green-mid);font-weight:600;margin-bottom:8px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,28px);font-weight:600;color:var(--green-deep);margin-bottom:10px;line-height:1.25}
+.section-desc{color:var(--muted);max-width:620px;margin-bottom:2rem;font-size:15px}
+.divider{border:none;border-top:1px solid var(--border);margin:0}
+
+/* NATURE CARDS */
+.nature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:2rem}
+.nc{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.25rem;text-decoration:none;color:inherit;display:block;transition:border-color 0.15s,transform 0.15s}
+.nc:hover{border-color:var(--green-mid);transform:translateY(-2px)}
+.nc-icon{font-size:26px;margin-bottom:10px;display:block}
+.nc-title{font-weight:600;font-size:14px;color:var(--green-deep);margin-bottom:6px}
+.nc-title-en{font-size:11px;color:var(--muted);margin-bottom:6px;font-style:italic}
+.nc-text{font-size:13px;color:var(--muted);line-height:1.55;margin-bottom:10px}
+.nc-link{font-size:12px;color:var(--green-mid);font-weight:500;display:inline-flex;align-items:center;gap:3px;text-decoration:none}
+.nc-link:hover{text-decoration:underline}
+
+/* VALUES */
+.values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:2rem}
+.vbox{background:var(--green-soft);border-radius:10px;padding:1.25rem;text-align:center}
+.vbox-icon{font-size:28px;margin-bottom:8px}
+.vbox-title{font-weight:600;font-size:14px;color:var(--green-deep);margin-bottom:2px}
+.vbox-title-en{font-size:11px;color:var(--green-mid);margin-bottom:5px;font-style:italic}
+.vbox-text{font-size:12px;color:var(--muted);line-height:1.5}
+
+/* QUOTE */
+.quote{border-left:4px solid var(--green-mid);padding:1.25rem 1.5rem;background:var(--green-soft);border-radius:0 10px 10px 0;margin-bottom:2rem}
+.quote-text{font-family:'Playfair Display',serif;font-size:16px;color:var(--green-deep);line-height:1.65;margin-bottom:4px}
+.quote-text-en{font-size:13px;color:var(--green-mid);line-height:1.6;margin-bottom:6px;font-style:italic}
+.quote-src{font-size:12px;color:var(--muted)}
+
+/* REGIJE */
+.regije-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-bottom:2rem}
+.regija{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1rem 1.125rem;text-decoration:none;color:inherit;display:block;transition:border-color 0.15s}
+.regija:hover{border-color:var(--green-mid)}
+.regija-badge{display:inline-block;font-size:11px;padding:2px 9px;border-radius:20px;margin-bottom:7px;font-weight:500}
+.rb-g{background:#e8f5ee;color:#1a4a2e} .rb-p{background:#e6f1fb;color:#0c447c}
+.rb-o{background:#e1f5f5;color:#085050} .rb-k{background:#f1efe8;color:#3a3830}
+.rb-s{background:#eaf3de;color:#27500a} .rb-pd{background:#faeeda;color:#633806}
+.rb-pm{background:#eeedfe;color:#3c3489} .rb-d{background:#faece7;color:#712b13}
+.rb-z{background:#fcebeb;color:#791f1f} .rb-ko{background:#fdf4e3;color:#7a5000}
+.regija-name{font-weight:600;font-size:14px;color:var(--green-deep);margin-bottom:2px}
+.regija-name-en{font-size:11px;color:var(--muted);font-style:italic;margin-bottom:4px}
+.regija-znan{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:8px}
+.regija-link{font-size:12px;color:var(--sky);font-weight:500;text-decoration:none}
+.regija-link:hover{text-decoration:underline}
+
+/* LIONS */
+.lions-header{background:linear-gradient(135deg,#2d1a00 0%,#5a3a00 100%);color:white;border-radius:16px;padding:2rem;margin-bottom:2rem;display:flex;align-items:flex-start;gap:1.5rem;flex-wrap:wrap}
+.lions-logo-box{width:64px;height:64px;background:var(--gold);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:32px;flex-shrink:0}
+.lions-title{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold);margin-bottom:4px}
+.lions-sub{font-size:13px;color:rgba(255,255,255,0.78);line-height:1.6;margin-bottom:10px}
+.lions-official-link{display:inline-flex;align-items:center;gap:5px;background:var(--gold);color:#2d1a00;border-radius:7px;padding:7px 16px;font-size:13px;font-weight:600;text-decoration:none;transition:opacity 0.15s}
+.lions-official-link:hover{opacity:0.85}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:2rem}
+@media(max-width:500px){.stats-row{grid-template-columns:repeat(2,1fr)}}
+.stat{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center}
+.stat-num{font-size:26px;font-weight:600;color:var(--green-deep)}
+.stat-lbl{font-size:11px;color:var(--muted);margin-top:2px}
+
+/* SEARCH */
+.search-wrap{position:relative;margin-bottom:10px}
+.search-wrap input{width:100%;padding:11px 14px 11px 40px;border:1.5px solid var(--border);border-radius:9px;font-size:14px;background:var(--white);color:var(--text);outline:none;transition:border-color 0.15s}
+.search-wrap input:focus{border-color:var(--green-mid)}
+.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#aaa;font-size:17px;pointer-events:none}
+.filter-row{display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap}
+.filt{padding:7px 16px;border:1.5px solid var(--border);border-radius:20px;font-size:13px;cursor:pointer;background:var(--white);color:var(--muted);font-weight:500;transition:all 0.15s}
+.filt:hover{border-color:var(--green-mid);color:var(--green-mid)}
+.filt.on-lions{background:var(--gold-light);color:#7a4f00;border-color:var(--gold)}
+.filt.on-leo{background:var(--leo-light);color:var(--leo-blue);border-color:var(--leo-blue)}
+.filt.on-all{background:var(--green-soft);color:var(--green-deep);border-color:var(--green-mid)}
+
+/* KLUB CARDS */
+.klub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:12px}
+.kcard{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1rem 1.125rem;transition:border-color 0.15s,transform 0.15s;display:flex;flex-direction:column;gap:5px}
+.kcard:hover{border-color:var(--green-mid);transform:translateY(-1px)}
+.kcard-top{display:flex;align-items:center;gap:10px}
+.kdot{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.kdot-lions{background:var(--gold-light)} .kdot-leo{background:var(--leo-light)}
+.kname{font-size:14px;font-weight:600;color:var(--green-deep);line-height:1.3}
+.kloc{font-size:12px;color:var(--muted)}
+.kdesc{font-size:12px;color:var(--muted);line-height:1.55}
+.kbadge{display:inline-block;font-size:11px;padding:2px 9px;border-radius:20px;font-weight:500;align-self:flex-start}
+.kb-lions{background:var(--gold-light);color:#7a4f00} .kb-leo{background:var(--leo-light);color:var(--leo-blue)}
+.klink{font-size:12px;color:var(--sky);text-decoration:none;font-weight:500;align-self:flex-start;margin-top:2px}
+.klink:hover{text-decoration:underline}
+.empty-msg{grid-column:1/-1;text-align:center;padding:2.5rem;color:var(--muted);font-size:14px}
+
+/* QR */
+.qr-section{background:var(--green-deep);color:white;text-align:center;padding:3rem 1.5rem}
+.qr-inner{max-width:680px;margin:0 auto}
+.qr-title{font-family:'Playfair Display',serif;font-size:24px;color:var(--gold);margin-bottom:8px}
+.qr-sub{font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:2rem;font-weight:300}
+.qr-box{background:white;border-radius:16px;padding:1.5rem;display:inline-block;margin-bottom:1.5rem}
+.qr-note{font-size:12px;color:rgba(255,255,255,0.5);margin-top:1rem}
+.qr-url{display:inline-block;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 18px;font-size:13px;color:rgba(255,255,255,0.8);margin-bottom:1rem;word-break:break-all}
+
+/* FOOTER */
+footer{background:#111;color:rgba(255,255,255,0.5);text-align:center;padding:2rem 1rem;font-size:12px}
+footer a{color:var(--gold);text-decoration:none}
+footer a:hover{text-decoration:underline}
+.footer-bi{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:10px}
+
+/* BILINGUAL LABEL */
+.bi-label{display:inline-block;background:rgba(200,168,75,0.15);border:1px solid var(--gold);color:var(--gold);border-radius:5px;font-size:10px;padding:1px 7px;margin-left:6px;vertical-align:middle;letter-spacing:0.05em}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 0.55s ease,transform 0.55s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:640px){nav{padding:0 1rem}.nav-links{display:none}.lions-header{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<!-- LANGUAGE BAR -->
+<div class="lang-bar">
+  <span style="font-size:12px;color:rgba(255,255,255,0.5);margin-right:8px">🌐 Jezik / Language:</span>
+  <button class="lang-btn active" id="btn-sl" onclick="setLang('sl')">🇸🇮 Slovensko</button>
+  <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 English</button>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">🇸🇮 Slovenija · Lions D129</a>
+  <div class="nav-links">
+    <a href="#narava"><span lang-content="sl">Narava</span><span lang-content="en">Nature</span></a>
+    <a href="#vredote"><span lang-content="sl">Vrednote</span><span lang-content="en">Values</span></a>
+    <a href="#regije"><span lang-content="sl">Regije</span><span lang-content="en">Regions</span></a>
+    <a href="#lions">Lions</a>
+    <a href="#qr">QR</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-flag">🇸🇮</div>
+  <h1>
+    <span lang-content="sl">Slovenija —<br><span style="color:var(--gold)">dežela, ki osvoji srce</span></span>
+    <span lang-content="en">Slovenia —<br><span style="color:var(--gold)">the land that wins your heart</span></span>
+  </h1>
+  <p class="hero-sub" lang-content="sl">Majhna po površini, velika po duši. Dežela, kjer Alpe segajo do Jadrana, kjer reke zbežijo v podzemlje in kjer vas čakajo odprti ljudje brez predsodkov.</p>
+  <p class="hero-sub" lang-content="en">Small in size, great in spirit. A land where the Alps reach the Adriatic Sea, where rivers disappear underground and where open-hearted people welcome you without prejudice.</p>
+  <div class="hero-tags">
+    <span class="htag">🌲 <span lang-content="sl">Pristna narava</span><span lang-content="en">Authentic nature</span></span>
+    <span class="htag">🤝 <span lang-content="sl">Sožitje</span><span lang-content="en">Harmony</span></span>
+    <span class="htag">🌍 <span lang-content="sl">Srce Evrope</span><span lang-content="en">Heart of Europe</span></span>
+    <span class="htag">🦁 Lions Distrikt 129</span>
+    <span class="htag">⭐ Leo <span lang-content="sl">klubi</span><span lang-content="en">clubs</span></span>
+  </div>
+  <div class="hero-btns">
+    <a href="#narava" class="btn-primary"><span lang-content="sl">Odkrijte Slovenijo ↓</span><span lang-content="en">Discover Slovenia ↓</span></a>
+    <a href="#lions" class="btn-outline">Lions &amp; Leo ↓</a>
+    <a href="https://www.slovenia.info/en" target="_blank" rel="noopener" class="btn-outline">🌐 Visit Slovenia</a>
+  </div>
+</div>
+
+<!-- NARAVA / NATURE -->
+<section id="narava">
+  <div class="reveal">
+    <div class="section-eyebrow"><span lang-content="sl">Narava in lepote</span><span lang-content="en">Nature &amp; Beauty</span></div>
+    <h2 class="section-title">
+      <span lang-content="sl">Štiri svetove v enem obisku</span>
+      <span lang-content="en">Four worlds in one visit</span>
+    </h2>
+    <p class="section-desc" lang-content="sl">Slovenija je edina država, kjer se stikajo Alpe, Mediteran, Panonska nižina in Dinaridi. Na 20.000 km² vas čaka 27.000 km rek, 10.000 jam in 60 % gozda.</p>
+    <p class="section-desc" lang-content="en">Slovenia is the only country where the Alps, the Mediterranean, the Pannonian Plain and the Dinarides all meet. In 20,000 km² you'll find 27,000 km of rivers, 10,000 caves and 60% forest cover.</p>
+  </div>
+  <div class="nature-grid reveal">
+    <a class="nc" href="https://www.slovenia.info/en/places-to-go/regions/alpine-slovenia/bled" target="_blank" rel="noopener">
+      <span class="nc-icon">🏔️</span>
+      <div class="nc-title"><span lang-content="sl">Alpski svet</span><span lang-content="en">Alpine world</span></div>
+      <div class="nc-text"><span lang-content="sl">Triglav, Bled, Bohinj, Logarska dolina, Vintgar, Kranjska Gora — čisti zrak in ledeniška jezera.</span><span lang-content="en">Triglav, Bled, Bohinj, Logarska Valley, Vintgar Gorge, Kranjska Gora — pure air and glacial lakes.</span></div>
+      <span class="nc-link">slovenia.info ↗</span>
+    </a>
+    <a class="nc" href="https://www.postojnska-jama.eu" target="_blank" rel="noopener">
+      <span class="nc-icon">🕳️</span>
+      <div class="nc-title"><span lang-content="sl">Kraški podzemni svet</span><span lang-content="en">Karst underground</span></div>
+      <div class="nc-text"><span lang-content="sl">Postojnska jama, Škocjanske jame (UNESCO), Predjamski grad. Dom edinstvene človeške ribice.</span><span lang-content="en">Postojna Cave, Škocjan Caves (UNESCO), Predjama Castle. Home of the unique human fish.</span></div>
+      <span class="nc-link">postojnska-jama.eu ↗</span>
+    </a>
+    <a class="nc" href="https://www.portoroz.si" target="_blank" rel="noopener">
+      <span class="nc-icon">🌊</span>
+      <div class="nc-title"><span lang-content="sl">Jadransko morje</span><span lang-content="en">Adriatic coast</span></div>
+      <div class="nc-text"><span lang-content="sl">Piran, Portorož, Koper, Izola — beneška arhitektura, mediteransko podnebje, ribiška tradicija.</span><span lang-content="en">Piran, Portorož, Koper, Izola — Venetian architecture, Mediterranean climate, fishing tradition.</span></div>
+      <span class="nc-link">portoroz.si ↗</span>
+    </a>
+    <a class="nc" href="https://www.visitmaribor.si" target="_blank" rel="noopener">
+      <span class="nc-icon">🍇</span>
+      <div class="nc-title"><span lang-content="sl">Vinska dediščina</span><span lang-content="en">Wine heritage</span></div>
+      <div class="nc-text"><span lang-content="sl">Maribor — najstarejša trta na svetu (400+ let). Jeruzalem, Goriška Brda, Vipavska dolina.</span><span lang-content="en">Maribor — the world's oldest vine (400+ years). Jeruzalem, Goriška Brda, Vipava Valley.</span></div>
+      <span class="nc-link">visitmaribor.si ↗</span>
+    </a>
+    <a class="nc" href="https://www.slovenia.info/en/places-to-go/regions/alpine-slovenia/triglav-national-park" target="_blank" rel="noopener">
+      <span class="nc-icon">🌿</span>
+      <div class="nc-title"><span lang-content="sl">Zeleno srce Evrope</span><span lang-content="en">Green heart of Europe</span></div>
+      <div class="nc-text"><span lang-content="sl">Triglavski narodni park — 60 % ozemlja gozda, čista voda in izjemna biotska raznovrstnost.</span><span lang-content="en">Triglav National Park — 60% forest cover, crystal-clear water and extraordinary biodiversity.</span></div>
+      <span class="nc-link">slovenia.info ↗</span>
+    </a>
+    <a class="nc" href="https://www.visitljubljana.com" target="_blank" rel="noopener">
+      <span class="nc-icon">🏰</span>
+      <div class="nc-title"><span lang-content="sl">Ljubljana</span><span lang-content="en">Ljubljana</span></div>
+      <div class="nc-text"><span lang-content="sl">Plečnikova prestolnica — grad, Tromostovje, živahna kavarna kultura in kulturni utrip.</span><span lang-content="en">Plečnik's capital — the castle, Triple Bridge, vibrant café culture and creative energy.</span></div>
+      <span class="nc-link">visitljubljana.com ↗</span>
+    </a>
+    <a class="nc" href="https://www.terme-catez.si" target="_blank" rel="noopener">
+      <span class="nc-icon">💧</span>
+      <div class="nc-title"><span lang-content="sl">Terme in wellness</span><span lang-content="en">Spas &amp; wellness</span></div>
+      <div class="nc-text"><span lang-content="sl">Terme Čatež, Rogaška Slatina, Terme Olimia — naravni termalni izviri za zdravje in sprostitev.</span><span lang-content="en">Terme Čatež, Rogaška Slatina, Terme Olimia — natural thermal springs for health and relaxation.</span></div>
+      <span class="nc-link">terme-catez.si ↗</span>
+    </a>
+    <a class="nc" href="https://www.visitptuj.eu" target="_blank" rel="noopener">
+      <span class="nc-icon">🎭</span>
+      <div class="nc-title"><span lang-content="sl">Živa kultura</span><span lang-content="en">Living culture</span></div>
+      <div class="nc-text"><span lang-content="sl">Ptuj — Kurentovanje (UNESCO), Festival Lent Maribor, Idrijska čipka, folklora in tradicija.</span><span lang-content="en">Ptuj — Kurentovanje (UNESCO), Maribor Lent Festival, Idrija lace, folklore and tradition.</span></div>
+      <span class="nc-link">visitptuj.eu ↗</span>
+    </a>
+  </div>
+  <div class="quote reveal">
+    <div class="quote-text" lang-content="sl">"V enem dnevu se kopate v Jadranu, spijete kozarec vina v Goriških Brdih in gledate sončni zahod z Bleda. To je Slovenija."</div>
+    <div class="quote-text-en" lang-content="en">"In one day you can swim in the Adriatic, sip wine in Goriška Brda and watch the sunset from Bled. That is Slovenia."</div>
+    <div class="quote-src"><span lang-content="sl">— pogosta izkušnja obiskovalcev</span><span lang-content="en">— a common experience of visitors to our land</span></div>
+  </div>
+  <div style="text-align:center">
+    <a href="https://www.slovenia.info/en" target="_blank" rel="noopener" class="btn-primary" style="display:inline-flex">🌐 <span lang-content="sl">Vse o turizmu — slovenia.info ↗</span><span lang-content="en">All about tourism — slovenia.info ↗</span></a>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- VREDNOTE / VALUES -->
+<section id="vredote">
+  <div class="reveal">
+    <div class="section-eyebrow"><span lang-content="sl">Vrednote dežele</span><span lang-content="en">Values of the land</span></div>
+    <h2 class="section-title">
+      <span lang-content="sl">Sožitje brez predsodkov</span>
+      <span lang-content="en">Harmony without prejudice</span>
+    </h2>
+    <p class="section-desc" lang-content="sl">Slovenci spoštujemo naravo, delimo mizo z vsakomur in ohranjamo izročilo prednikov — ob tem pa z odprtostjo pozdravljamo svet.</p>
+    <p class="section-desc" lang-content="en">Slovenians respect nature, share their table with everyone and preserve ancestral traditions — while welcoming the world with open arms.</p>
+  </div>
+  <div class="values-grid reveal">
+    <div class="vbox">
+      <div class="vbox-icon">🤝</div>
+      <div class="vbox-title" lang-content="sl">Gostoljubnost</div>
+      <div class="vbox-title" lang-content="en">Hospitality</div>
+      <div class="vbox-text"><span lang-content="sl">Tuji obiskovalec postane gost, gost postane prijatelj.</span><span lang-content="en">A foreign visitor becomes a guest, a guest becomes a friend.</span></div>
+    </div>
+    <div class="vbox">
+      <div class="vbox-icon">🌿</div>
+      <div class="vbox-title" lang-content="sl">Spoštovanje narave</div>
+      <div class="vbox-title" lang-content="en">Respect for nature</div>
+      <div class="vbox-text"><span lang-content="sl">Narava ni ozadje — je naš dom. Varujemo jo za prihodnje rodove.</span><span lang-content="en">Nature is not a backdrop — it is our home. We protect it for future generations.</span></div>
+    </div>
+    <div class="vbox">
+      <div class="vbox-icon">👥</div>
+      <div class="vbox-title" lang-content="sl">Skupnost</div>
+      <div class="vbox-title" lang-content="en">Community</div>
+      <div class="vbox-text"><span lang-content="sl">Vsak kraj ima skupnost, ki bdi nad sosedom in si podaja roko v stiski.</span><span lang-content="en">Every town has a community that watches over its neighbours and lends a hand in need.</span></div>
+    </div>
+    <div class="vbox">
+      <div class="vbox-icon">🌍</div>
+      <div class="vbox-title" lang-content="sl">Odprtost svetu</div>
+      <div class="vbox-title" lang-content="en">Open to the world</div>
+      <div class="vbox-text"><span lang-content="sl">Na stičišču kultur — brez predsodkov odprta za dialog in prijateljstvo.</span><span lang-content="en">At the crossroads of cultures — open to dialogue and friendship without prejudice.</span></div>
+    </div>
+    <div class="vbox">
+      <div class="vbox-icon">🎶</div>
+      <div class="vbox-title" lang-content="sl">Živahna kultura</div>
+      <div class="vbox-title" lang-content="en">Vibrant culture</div>
+      <div class="vbox-text"><span lang-content="sl">Glasba, folklora, literatura — bogata kulturna dediščina, ki živi v vsakdanu.</span><span lang-content="en">Music, folklore, literature — rich cultural heritage alive in everyday life.</span></div>
+    </div>
+    <div class="vbox">
+      <div class="vbox-icon">🦁</div>
+      <div class="vbox-title" lang-content="sl">Lions duh</div>
+      <div class="vbox-title" lang-content="en">Lions spirit</div>
+      <div class="vbox-text"><span lang-content="sl">Prostovoljstvo, humanitarnost, »We Serve« — vrednote, ki nas povezujejo z Lionsi po svetu.</span><span lang-content="en">Volunteering, charity, "We Serve" — the values connecting us with Lions worldwide.</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- REGIJE / REGIONS -->
+<section id="regije">
+  <div class="reveal">
+    <div class="section-eyebrow"><span lang-content="sl">Regije in znamenitosti</span><span lang-content="en">Regions &amp; attractions</span></div>
+    <h2 class="section-title">
+      <span lang-content="sl">Od Triglava do Jadrana — vsaka regija svoja zgodba</span>
+      <span lang-content="en">From Triglav to the Adriatic — every region its own story</span>
+    </h2>
+  </div>
+  <div class="regije-grid reveal">
+    <a class="regija" href="https://www.slovenia.info/en/places-to-go/regions/alpine-slovenia" target="_blank" rel="noopener">
+      <span class="regija-badge rb-g">Gorenjska</span>
+      <div class="regija-name" lang-content="sl">Alpska prestolnica</div>
+      <div class="regija-name" lang-content="en">Alpine capital</div>
+      <div class="regija-znan">Bled, Bohinj, Triglav, Kranjska Gora, Vintgar, Škofja Loka</div>
+      <span class="regija-link">slovenia.info ↗</span>
+    </a>
+    <a class="regija" href="https://www.soca-valley.com" target="_blank" rel="noopener">
+      <span class="regija-badge rb-p">Primorska</span>
+      <div class="regija-name" lang-content="sl">Med gorami in morjem</div>
+      <div class="regija-name" lang-content="en">Between mountains and sea</div>
+      <div class="regija-znan">Kobarid, Soča, Nova Gorica (EPC 2025), Idrija UNESCO</div>
+      <span class="regija-link">soca-valley.com ↗</span>
+    </a>
+    <a class="regija" href="https://www.portoroz.si" target="_blank" rel="noopener">
+      <span class="regija-badge rb-o">Obala / Coast</span>
+      <div class="regija-name" lang-content="sl">Beneška dediščina</div>
+      <div class="regija-name" lang-content="en">Venetian heritage</div>
+      <div class="regija-znan">Piran, Portorož, Koper, Izola, Ankaran</div>
+      <span class="regija-link">portoroz.si ↗</span>
+    </a>
+    <a class="regija" href="https://www.postojnska-jama.eu" target="_blank" rel="noopener">
+      <span class="regija-badge rb-k">Kras &amp; Notranjska</span>
+      <div class="regija-name" lang-content="sl">Podzemni čudeži</div>
+      <div class="regija-name" lang-content="en">Underground wonders</div>
+      <div class="regija-znan">Postojna, Škocjan UNESCO, Predjama, Lipica</div>
+      <span class="regija-link">postojnska-jama.eu ↗</span>
+    </a>
+    <a class="regija" href="https://visitsavinjska.com/en/" target="_blank" rel="noopener">
+      <span class="regija-badge rb-s">Savinjska</span>
+      <div class="regija-name" lang-content="sl">Hmelj in gore</div>
+      <div class="regija-name" lang-content="en">Hops and mountains</div>
+      <div class="regija-znat">Celje, Logarska dolina, Velenje, Rogaška Slatina</div>
+      <span class="regija-link">visitsavinjska.com ↗</span>
+    </a>
+    <a class="regija" href="https://www.visitmaribor.si" target="_blank" rel="noopener">
+      <span class="regija-badge rb-pd">Podravje</span>
+      <div class="regija-name" lang-content="sl">Stara trta in grad</div>
+      <div class="regija-name" lang-content="en">Old vine and castle</div>
+      <div class="regija-znan">Maribor, Ptuj, stara trta / oldest vine (400+), Pohorje</div>
+      <span class="regija-link">visitmaribor.si ↗</span>
+    </a>
+    <a class="regija" href="https://www.visitpomurje.eu" target="_blank" rel="noopener">
+      <span class="regija-badge rb-pm">Pomurje &amp; Prekmurje</span>
+      <div class="regija-name" lang-content="sl">Ravnica ob Muri</div>
+      <div class="regija-name" lang-content="en">Plains along the Mura</div>
+      <div class="regija-znan">Murska Sobota, Lendava, Jeruzalem wines</div>
+      <span class="regija-link">visitpomurje.eu ↗</span>
+    </a>
+    <a class="regija" href="https://www.visitdolenjska.eu/en/" target="_blank" rel="noopener">
+      <span class="regija-badge rb-d">Dolenjska &amp; Bela Krajina</span>
+      <div class="regija-name" lang-content="sl">Zelena tišina</div>
+      <div class="regija-name" lang-content="en">Green silence</div>
+      <div class="regija-znan">Novo Mesto, Otočec, Kolpa, Ribnica</div>
+      <span class="regija-link">visitdolenjska.eu ↗</span>
+    </a>
+    <a class="regija" href="https://www.terme-catez.si" target="_blank" rel="noopener">
+      <span class="regija-badge rb-z">Zasavje &amp; Posavje</span>
+      <div class="regija-name" lang-content="sl">Sava in terme</div>
+      <div class="regija-name" lang-content="en">Sava river &amp; spas</div>
+      <div class="regija-znan">Trbovlje, Krško, Brežice, Terme Čatež</div>
+      <span class="regija-link">terme-catez.si ↗</span>
+    </a>
+    <a class="regija" href="https://www.rra-koroska.si" target="_blank" rel="noopener">
+      <span class="regija-badge rb-ko">Koroška</span>
+      <div class="regija-name" lang-content="sl">Gorska idila</div>
+      <div class="regija-name" lang-content="en">Mountain idyll</div>
+      <div class="regija-znan">Slovenj Gradec, Dravograd, Mislinjska dolina</div>
+      <span class="regija-link">rra-koroska.si ↗</span>
+    </a>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- LIONS & LEO -->
+<section id="lions">
+  <div class="reveal">
+    <div class="section-eyebrow"><span lang-content="sl">Lions Clubs International</span><span lang-content="en">Lions Clubs International</span></div>
+    <h2 class="section-title">
+      <span lang-content="sl">Lions klubi — ambasadorji lepe besede</span>
+      <span lang-content="en">Lions clubs — ambassadors of goodwill</span>
+    </h2>
+    <p class="section-desc" lang-content="sl">Od leta 1990, ko je bil v Ljubljani ustanovljen prvi klub, so Lionsi zgradili mrežo dobrih ljudi v vsakem kotičku Slovenije.</p>
+    <p class="section-desc" lang-content="en">Since 1990, when the first club was founded in Ljubljana, Lions have built a network of good people in every corner of Slovenia.</p>
+  </div>
+
+  <div class="lions-header reveal">
+    <div class="lions-logo-box">🦁</div>
+    <div>
+      <div class="lions-title">Zveza Lions klubov — Distrikt 129, Slovenija</div>
+      <div class="lions-sub">
+        <span lang-content="sl">62 Lions klubov · ~1.400 članov · 19 Leo klubov · ~200 mladih članov<br>Slovenija je med državami z največjo gostoto Lions članov na število prebivalcev v Evropi.</span>
+        <span lang-content="en">62 Lions clubs · ~1,400 members · 19 Leo clubs · ~200 young members<br>Slovenia ranks among the highest Lions membership density per capita in Europe.</span>
+      </div>
+      <a class="lions-official-link" href="https://www.lions.si" target="_blank" rel="noopener">🌐 lions.si ↗</a>
+    </div>
+  </div>
+
+  <div class="stats-row reveal">
+    <div class="stat"><div class="stat-num" style="color:#7a4f00">62</div><div class="stat-lbl"><span lang-content="sl">Lions klubov</span><span lang-content="en">Lions clubs</span></div></div>
+    <div class="stat"><div class="stat-num" style="color:#1e4fa3">19</div><div class="stat-lbl"><span lang-content="sl">Leo klubov</span><span lang-content="en">Leo clubs</span></div></div>
+    <div class="stat"><div class="stat-num">~1.400</div><div class="stat-lbl"><span lang-content="sl">Lions članov</span><span lang-content="en">Lions members</span></div></div>
+    <div class="stat"><div class="stat-num">35+</div><div class="stat-lbl"><span lang-content="sl">let delovanja</span><span lang-content="en">years active</span></div></div>
+  </div>
+
+  <div class="quote reveal" style="border-left-color:#c8a84b">
+    <div class="quote-text" lang-content="sl">"Poslanstvo Lions klubov je ustvarjanje prijateljskih vezi med narodi, prostovoljna pomoč in širjenje lepe besede o kraju, ki ga imenujemo dom."</div>
+    <div class="quote-text" lang-content="en">"The mission of Lions clubs is to create bonds of friendship between nations, to volunteer and to spread kind words about the place we call home."</div>
+    <div class="quote-src">— Lions Clubs International · "We Serve"</div>
+  </div>
+
+  <div class="search-wrap reveal">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="ksearch" placeholder="🔍 Išči / Search club, kraj / city, regija / region..." oninput="renderKlubi()">
+  </div>
+  <div class="filter-row reveal">
+    <div class="filt on-all" id="f-vse" onclick="setFilt('vse')">🐾 <span lang-content="sl">Vsi klubi</span><span lang-content="en">All clubs</span></div>
+    <div class="filt" id="f-lions" onclick="setFilt('lions')">🦁 Lions</div>
+    <div class="filt" id="f-leo" onclick="setFilt('leo')">⭐ Leo</div>
+  </div>
+  <div class="klub-grid" id="klub-grid"></div>
+</section>
+
+<hr class="divider">
+
+<!-- QR -->
+<div class="qr-section" id="qr">
+  <div class="qr-inner">
+    <div class="qr-title">
+      <span lang-content="sl">Deli Slovenijo z enim skenom</span>
+      <span lang-content="en">Share Slovenia with one scan</span>
+    </div>
+    <div class="qr-sub">
+      <span lang-content="sl">Skenirajte QR kodo in se takoj znajdete v srcu slovenske lepote — kjer koli na svetu.</span>
+      <span lang-content="en">Scan the QR code and instantly discover the heart of Slovenia's beauty — anywhere in the world.</span>
+    </div>
+    <div class="qr-url" id="qr-url-display">📎 lions.si</div>
+    <div class="qr-box"><div id="qr-div"></div></div>
+    <div><a href="https://www.lions.si" target="_blank" rel="noopener" class="btn-primary">🌐 lions.si ↗</a></div>
+    <div class="qr-note">
+      <span lang-content="sl">Ko objavite stran na spletu, QR koda samodejno pokaže vaš URL.</span>
+      <span lang-content="en">Once published online, the QR code automatically shows your URL.</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bi">
+    <a href="https://www.lions.si" target="_blank">🦁 lions.si</a>
+    <a href="https://www.slovenia.info/en" target="_blank">🌿 slovenia.info</a>
+    <a href="https://www.lionsclubs.org" target="_blank">🌍 lionsclubs.org</a>
+    <a href="https://www.visitljubljana.com" target="_blank">🏰 visitljubljana.com</a>
+  </div>
+  <p>Lions Clubs International · Distrikt 129 · Slovenija / Slovenia · "We Serve — Pomagamo"</p>
+  <p style="margin-top:6px;font-size:11px">
+    <span lang-content="sl">🇸🇮 Slovenija · Srce Evrope · Dežela lepot</span>
+    <span lang-content="en">🇸🇮 Slovenia · Heart of Europe · Land of Beauty</span>
+  </p>
+</footer>
+
+<script>
+const T = {
+  lions_badge: {sl:'Lions klub', en:'Lions club'},
+  leo_badge: {sl:'Leo klub', en:'Leo club'},
+  more: {sl:'Več info ↗', en:'More info ↗'},
+  loc: {sl:'📍', en:'📍'},
+  empty: {sl:'Ni zadetkov za to iskanje.', en:'No results found for this search.'}
+};
+
+let lang = 'sl';
+function setLang(l) {
+  lang = l;
+  document.body.classList.toggle('lang-en', l==='en');
+  document.getElementById('btn-sl').classList.toggle('active', l==='sl');
+  document.getElementById('btn-en').classList.toggle('active', l==='en');
+  renderKlubi();
+}
+
+const klubi = [
+  {t:'lions',n:'LC Ljubljana',k:'Ljubljana',r:'Osrednja Slovenija / Central Slovenia',d:{sl:'PRVI Lions klub v Sloveniji, ustanovljen 18. maja 1990. Začetek lionizma v naši deželi.',en:'The FIRST Lions club in Slovenia, founded on 18 May 1990. The beginning of Lionism in our land.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Ljubljana Barje',k:'Ljubljana',r:'Osrednja Slovenija / Central Slovenia',d:{sl:'Klub naravnega rezervata — ekološke in humanitarne iniciative.',en:'Nature reserve club — ecological and humanitarian initiatives.'},url:'https://www.lions.si/lions-klubi/'},
+  {t:'lions',n:'LC Ljubljana Emona',k:'Ljubljana',r:'Osrednja Slovenija / Central Slovenia',d:{sl:'Po rimski Emoni — bogata humanitarna tradicija prestolnice.',en:'Named after Roman Emona — rich humanitarian tradition of the capital.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Ljubljana Forum',k:'Ljubljana',r:'Osrednja Slovenija / Central Slovenia',d:{sl:'Dinamičen klub z raznolikim humanitarnim programom.',en:'A dynamic club with a diverse humanitarian programme.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Ljubljana Iliria',k:'Ljubljana',r:'Osrednja Slovenija / Central Slovenia',d:{sl:'Klub z zgodovinskim imenom v širšem ljubljanskem okolju.',en:'A club with a historic name in the wider Ljubljana area.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Ljubljana Omnia',k:'Ljubljana',r:'Osrednja Slovenija / Central Slovenia',d:{sl:'Humanitarno delovanje na različnih področjih v prestolnici.',en:'Humanitarian work across various fields in the capital.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Ljubljana Rožnik',k:'Ljubljana',r:'Osrednja Slovenija / Central Slovenia',d:{sl:'Po gozdnem parku Rožnik — narava in humanitarnost.',en:'Named after Rožnik forest park — nature and humanitarian work.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Ljubljana Tivoli',k:'Ljubljana',r:'Osrednja Slovenija / Central Slovenia',d:{sl:'Klub iz srca Ljubljane, po parku Tivoli.',en:'Club from the heart of Ljubljana, named after Tivoli Park.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Ljubljana Vega',k:'Ljubljana',r:'Osrednja Slovenija / Central Slovenia',d:{sl:'Po matematiku Juriju Vegi — izobraževalni projekti.',en:'Named after mathematician Jurij Vega — educational projects.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Ljubljana Viva',k:'Ljubljana',r:'Osrednja Slovenija / Central Slovenia',d:{sl:'Ženski klub — zdravje, kultura in socialna pomoč.',en:'Women\'s club — health, culture and social support.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Adelma von Vay',k:'Ljubljana',r:'Osrednja Slovenija / Central Slovenia',d:{sl:'Ženski humanitarni klub z mednarodno vizijo.',en:'Women\'s humanitarian club with an international vision.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Alma Mater Europaea',k:'Maribor',r:'Podravje',d:{sl:'Akademski klub — izobraževanje in kultura.',en:'Academic club — education and culture.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Domžale',k:'Domžale',r:'Osrednja Slovenija / Central Slovenia',d:{sl:'Humanitarni klub v bližini prestolnice.',en:'Humanitarian club near the capital city.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Kamnik',k:'Kamnik',r:'Osrednja Slovenija / Central Slovenia',d:{sl:'Klub pod Kamniško-Savinjskimi Alpami.',en:'Club at the foot of the Kamnik-Savinja Alps.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Vrhnika',k:'Vrhnika',r:'Osrednja Slovenija / Central Slovenia',d:{sl:'V rojstnem kraju Ivana Cankarja — literatura in humanitarnost.',en:'In the birthplace of Ivan Cankar — literature and humanitarian work.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Kočevje',k:'Kočevje',r:'Osrednja Slovenija / Central Slovenia',d:{sl:'Klub sredi Kočevskega Roga — enega najgozdnatejših kotičkov.',en:'Club in the heart of Kočevski Rog — one of Europe\'s most forested areas.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Bled',k:'Bled',r:'Gorenjska',d:{sl:'Med najlepšimi kraji sveta — klub, ki zrcali lepoto dežele.',en:'Among the most beautiful places in the world — a club that mirrors the beauty of the land.'},url:'https://www.bled.si/en/'},
+  {t:'lions',n:'LC Bled Golf',k:'Bled',r:'Gorenjska',d:{sl:'Dobrodelni golfski turnirji za zbiranje humanitarnih sredstev.',en:'Charity golf tournaments raising funds for humanitarian causes.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Brnik',k:'Brnik',r:'Gorenjska',d:{sl:'Klub pri mednarodnem letališču — vstopna točka v Slovenijo.',en:'Club at the international airport — the gateway to Slovenia.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Kranj',k:'Kranj',r:'Gorenjska',d:{sl:'V drugem največjem gorenjskem mestu, pod Triglavom.',en:'In the second-largest Upper Carniola city, beneath Triglav.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Škofja Loka',k:'Škofja Loka',r:'Gorenjska',d:{sl:'V zgodovinskem mestnem jedru s frančiškanskim samostanom.',en:'In the historic town centre with a Franciscan monastery.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Ankaran Istra',k:'Ankaran',r:'Obala / Coast',d:{sl:'Na stičišču treh kultur — slovensko-italijansko-hrvaško sožitje.',en:'At the meeting point of three cultures — Slovenian-Italian-Croatian harmony.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Izola Isola',k:'Izola',r:'Obala / Coast',d:{sl:'Dvojezični klub ob Jadranu z mediteransko tradicijo.',en:'Bilingual club on the Adriatic with a Mediterranean tradition.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Koper Capodistria',k:'Koper',r:'Obala / Coast',d:{sl:'V glavnem obalnem mestu — pristanišče odprtih rok.',en:'In the main coastal city — a port of open arms.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Portorož Zarja',k:'Portorož',r:'Obala / Coast',d:{sl:'Ženski klub na obalnem letovišču Jadrana.',en:'Women\'s club in the Adriatic coastal resort.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Goriška',k:'Nova Gorica',r:'Primorska',d:{sl:'Eden starejših primorskih klubov, čezmejno sožitje z Italijo.',en:'One of the older coastal clubs, cross-border harmony with Italy.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Nova Gorica',k:'Nova Gorica',r:'Primorska',d:{sl:'Mesto brez meje — Evropska prestolnica kulture 2025.',en:'The city without a border — European Capital of Culture 2025.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Kobarid Soča',k:'Kobarid',r:'Primorska',d:{sl:'Ob najlepši reki — mir, narava in spomin na soško fronto.',en:'On the most beautiful river — peace, nature and memory of the Isonzo Front.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Dobrovo',k:'Dobrovo',r:'Primorska',d:{sl:'V Goriških Brdih — vino, oljke in humanitarnost.',en:'In Goriška Brda — wine, olives and humanitarian work.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Idrija',k:'Idrija',r:'Primorska',d:{sl:'Mesto čipke in živega srebra (UNESCO) — ohranjevalci dediščine.',en:'City of lace and mercury (UNESCO) — guardians of heritage.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Vogrsco',k:'Vipava',r:'Primorska',d:{sl:'Vipavska dolina — veter, vino in prostovoljstvo.',en:'Vipava Valley — wind, wine and volunteering.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Zemono',k:'Vipava',r:'Primorska',d:{sl:'Po gradu Zemono — kulturni in humanitarni projekti.',en:'Named after Zemono castle — cultural and humanitarian projects.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Sežana',k:'Sežana',r:'Kras',d:{sl:'Na Krasu — kamenje, lipicanci in kraška gostoljubnost.',en:'On the Karst — stone, Lipizzaner horses and Karst hospitality.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Postojna Proteus',k:'Postojna',r:'Notranjska',d:{sl:'Po človeški ribici — varovanje edinstvene podzemne narave.',en:'Named after the human fish — protecting unique underground nature.'},url:'https://www.postojnska-jama.eu'},
+  {t:'lions',n:'LC Celje',k:'Celje',r:'Savinjska',d:{sl:'Nekdanje mesto grofov Celjskih — humanitarna tradicija.',en:'Former city of the Counts of Celje — humanitarian tradition.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Celje Keleia',k:'Celje',r:'Savinjska',d:{sl:'Po rimskem mestu Celeia — kulturni in humanitarni projekti.',en:'Named after Roman Celeia — cultural and humanitarian projects.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Celje Mozaik',k:'Celje',r:'Savinjska',d:{sl:'Ženski klub raznolikih humanitarnih akcij.',en:'Women\'s club of diverse humanitarian actions.'},url:'https://www.lionscelje-mozaik.si'},
+  {t:'lions',n:'LC Konjice',k:'Slov. Konjice',r:'Savinjska',d:{sl:'V Dravinjski dolini — vinska tradicija in humanitarnost.',en:'In the Dravinja Valley — wine tradition and humanitarian work.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Konjice Vita',k:'Slov. Konjice',r:'Savinjska',d:{sl:'Ženski klub — zdravje, sociala in skupnost.',en:'Women\'s club — health, social work and community.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Rogaška Slatina',k:'Rogaška Slatina',r:'Savinjska',d:{sl:'V termalni prestolnici — dobrodelnost in wellness.',en:'In the spa capital — charity and wellness.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Savinjska dolina',k:'Žalec',r:'Savinjska',d:{sl:'Srce slovenskega hmeljarstva — "zeleno zlato".',en:'Heart of Slovenian hop-growing — the "green gold" region.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Šentjur',k:'Šentjur',r:'Savinjska',d:{sl:'Lokalne humanitarne akcije v Savinjski regiji.',en:'Local humanitarian actions in the Savinja region.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Velenje',k:'Velenje',r:'Savinjska',d:{sl:'V Šaleški dolini — socialni projekti in solidarnost.',en:'In the Šalek Valley — social projects and solidarity.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Maribor',k:'Maribor',r:'Podravje',d:{sl:'Osrednji klub drugega mesta — ambasador mariborske duše.',en:'Central club of Slovenia\'s second city — ambassador of Maribor\'s soul.'},url:'https://www.visitmaribor.si'},
+  {t:'lions',n:'LC Maribor Piramida',k:'Maribor',r:'Podravje',d:{sl:'Po vinogradniškem hribu nad Mariborom.',en:'Named after the vineyard hill above Maribor.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Maribor Zarja',k:'Maribor',r:'Podravje',d:{sl:'Ženski klub — zdravje, kultura in socialna skrb.',en:'Women\'s club — health, culture and social care.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Ptuj',k:'Ptuj',r:'Podravje',d:{sl:'V najstarejšem slovenskem mestu — Kurentovanje in tradicija.',en:'In Slovenia\'s oldest city — Kurentovanje carnival and tradition.'},url:'https://www.visitptuj.eu'},
+  {t:'lions',n:'LC Ptuj Primus',k:'Ptuj',r:'Podravje',d:{sl:'Humanitarni projekti v Podravju in okolici Ptuja.',en:'Humanitarian projects in Podravje and the Ptuj area.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Slovenska Bistrica',k:'Slov. Bistrica',r:'Podravje',d:{sl:'Pod Pohorjem — narava in humanitarnost v sožitju.',en:'Beneath Pohorje — nature and humanitarian work in harmony.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Lendava Lendva',k:'Lendava',r:'Pomurje',d:{sl:'Dvojezični klub (sl/hu) — medkulturni dialog v obmejni Lendavi.',en:'Bilingual club (SL/HU) — intercultural dialogue in border-town Lendava.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Ljutomer',k:'Ljutomer',r:'Pomurje',d:{sl:'Jeruzalem — med najlepšimi vinorodnimi legami v Evropi.',en:'Jeruzalem — among the finest wine-growing locations in Europe.'},url:'https://www.visitpomurje.eu'},
+  {t:'lions',n:'LC Murska Sobota',k:'Murska Sobota',r:'Pomurje',d:{sl:'Kulturno in humanitarno središče Prekmurja.',en:'Cultural and humanitarian centre of Prekmurje.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Gornja Radgona',k:'Gornja Radgona',r:'Pomurje',d:{sl:'Ob meji z Avstrijo — vinska tradicija in čezmejno sožitje.',en:'On the Austrian border — wine tradition and cross-border harmony.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Novo mesto',k:'Novo Mesto',r:'Dolenjska',d:{sl:'Ustanovljen 1993, eden najaktivnejših klubov. Srce Dolenjske.',en:'Founded 1993, one of the most active clubs. Heart of Dolenjska.'},url:'https://lionsklubnovomesto.si'},
+  {t:'lions',n:'LC Trebnje',k:'Trebnje',r:'Dolenjska',d:{sl:'V osrčju Dolenjske — humanitarno delovanje in dediščina.',en:'In the heart of Dolenjska — humanitarian work and heritage.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Ribnica',k:'Ribnica',r:'Dolenjska',d:{sl:'Domovina suhe robe — obrt, tradicija in humanitarnost.',en:'Home of wooden crafts — tradition and humanitarian work.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Podzemelj – Bela Krajina',k:'Podzemelj',r:'Bela Krajina',d:{sl:'Ohranjevalci belokranjske kulturne dediščine in narave.',en:'Guardians of Bela Krajina\'s cultural heritage and nature.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Brežice',k:'Brežice',r:'Posavje',d:{sl:'Ob Savi — dobrodelni tek "Tečem, da pomagam" vsako leto.',en:'On the Sava river — charity run "I run to help" every year.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Krško',k:'Krško',r:'Posavje',d:{sl:'Humanitarno delovanje v Posavski regiji.',en:'Humanitarian work in the Posavje region.'},url:'https://www.lion.si'},
+  {t:'lions',n:'LC Trbovlje',k:'Trbovlje',r:'Zasavje',d:{sl:'V rudniški prestolnici — socialni projekti in solidarnost.',en:'In the mining capital — social projects and solidarity.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Trbovlje Brin',k:'Trbovlje',r:'Zasavje',d:{sl:'Humanitarnost v industrijski regiji Zasavja.',en:'Humanitarian work in the industrial Zasavje region.'},url:'https://www.lions.si'},
+  {t:'lions',n:'LC Slovenj Gradec',k:'Slovenj Gradec',r:'Koroška',d:{sl:'Koroška prestolnica — mir, kultura in humanitarnost.',en:'Carinthia capital — peace, culture and humanitarian work.'},url:'https://lions-sg.si'},
+
+  {t:'leo',n:'Leo klub Ljubljana',k:'Ljubljana',r:'Osrednja Slovenija / Central Slovenia',d:{sl:'Mladi ambasadorji prestolnice — prostovoljstvo in mednarodno sodelovanje.',en:'Young ambassadors of the capital — volunteering and international cooperation.'},url:'https://www.lions.si'},
+  {t:'leo',n:'Leo klub Maribor',k:'Maribor',r:'Podravje',d:{sl:'Mladi Mariborčani v službi skupnosti in Evrope.',en:'Young people from Maribor serving their community and Europe.'},url:'https://www.lions.si'},
+  {t:'leo',n:'Leo klub Celje',k:'Celje',r:'Savinjska',d:{sl:'Aktivni mladi prostovoljci v Savinjski regiji.',en:'Active young volunteers in the Savinja region.'},url:'https://www.lions.si'},
+  {t:'leo',n:'Leo klub Koper',k:'Koper',r:'Obala / Coast',d:{sl:'Mladi na Obali — mednarodne izmenjave in humanitarnost.',en:'Young people on the Coast — international exchanges and charity.'},url:'https://www.lions.si'},
+  {t:'leo',n:'Leo klub Kranj',k:'Kranj',r:'Gorenjska',d:{sl:'Gorenjski Leo — prostovoljstvo med mladimi.',en:'Upper Carniola Leo — youth volunteering.'},url:'https://www.lions.si'},
+  {t:'leo',n:'Leo klub Nova Gorica',k:'Nova Gorica',r:'Primorska',d:{sl:'Čezmejni mladi — slovensko-italijansko sožitje.',en:'Cross-border youth — Slovenian-Italian harmony.'},url:'https://www.lions.si'},
+  {t:'leo',n:'Leo klub Novo Mesto',k:'Novo Mesto',r:'Dolenjska',d:{sl:'Mladi dolenjski humanitarci in prostovoljci.',en:'Young humanitarian volunteers from Dolenjska.'},url:'https://www.lions.si'},
+  {t:'leo',n:'Leo klub Ptuj',k:'Ptuj',r:'Podravje',d:{sl:'Mladi prostovoljci v najstarejšem slovenskem mestu.',en:'Young volunteers in Slovenia\'s oldest city.'},url:'https://www.lions.si'},
+  {t:'leo',n:'Leo klub Murska Sobota',k:'Murska Sobota',r:'Pomurje',d:{sl:'Prekmurska mlada generacija srčnih prostovoljcev.',en:'Prekmurje\'s young generation of dedicated volunteers.'},url:'https://www.lions.si'},
+  {t:'leo',n:'Leo klub Bled',k:'Bled',r:'Gorenjska',d:{sl:'Mladi varovalci alpske narave in njenih lepot.',en:'Young guardians of Alpine nature and its beauty.'},url:'https://www.lions.si'},
+  {t:'leo',n:'Leo klub Slovenj Gradec',k:'Slovenj Gradec',r:'Koroška',d:{sl:'Mladi koroški prostovoljci in humanitarci.',en:'Young Carinthian volunteers and humanitarian workers.'},url:'https://www.lions.si'},
+  {t:'leo',n:'Leo klub Postojna',k:'Postojna',r:'Notranjska',d:{sl:'Mladi ob Postojnski jami — narava in prostovoljstvo.',en:'Young people by Postojna Cave — nature and volunteering.'},url:'https://www.lions.si'},
+  {t:'leo',n:'Leo klub Velenje',k:'Velenje',r:'Savinjska',d:{sl:'Mladi v Šaleški dolini — socialni projekti.',en:'Young people in the Šalek Valley — social projects.'},url:'https://www.lions.si'},
+  {t:'leo',n:'Leo klub Brežice',k:'Brežice',r:'Posavje',d:{sl:'Mladi prostovoljci ob reki Savi.',en:'Young volunteers on the Sava river.'},url:'https://www.lions.si'},
+  {t:'leo',n:'Leo klub Krško',k:'Krško',r:'Posavje',d:{sl:'Humanitarne akcije mladih v Krškem.',en:'Young humanitarian actions in Krško.'},url:'https://www.lions.si'},
+  {t:'leo',n:'Leo klub Domžale',k:'Domžale',r:'Osrednja Slovenija / Central Slovenia',d:{sl:'Mladi prostovoljci v okolici Ljubljane.',en:'Young volunteers in the Ljubljana area.'},url:'https://www.lions.si'},
+  {t:'leo',n:'Leo klub Idrija',k:'Idrija',r:'Primorska',d:{sl:'Mladi ohranjevalci čipkarske in rudniške dediščine UNESCO.',en:'Young guardians of lace-making and mining heritage (UNESCO).'},url:'https://www.lions.si'},
+  {t:'leo',n:'Leo klub Kamnik',k:'Kamnik',r:'Osrednja Slovenija / Central Slovenia',d:{sl:'Mladi pod Kamniško-Savinjskimi Alpami.',en:'Young people beneath the Kamnik-Savinja Alps.'},url:'https://www.lions.si'},
+  {t:'leo',n:'Leo klub Trbovlje',k:'Trbovlje',r:'Zasavje',d:{sl:'Mladi zasavski prostovoljci in humanitarci.',en:'Young Zasavje volunteers and humanitarian workers.'},url:'https://www.lions.si'},
+];
+
+let aktFilt='vse';
+function setFilt(f){
+  aktFilt=f;
+  document.querySelectorAll('.filt').forEach(el=>el.classList.remove('on-all','on-lions','on-leo'));
+  if(f==='vse') document.getElementById('f-vse').classList.add('on-all');
+  else if(f==='lions') document.getElementById('f-lions').classList.add('on-lions');
+  else document.getElementById('f-leo').classList.add('on-leo');
+  renderKlubi();
+}
+
+function renderKlubi(){
+  const q=(document.getElementById('ksearch').value||'').toLowerCase();
+  const list=klubi.filter(k=>{
+    const mt=aktFilt==='vse'||k.t===aktFilt;
+    const mq=!q||k.n.toLowerCase().includes(q)||k.k.toLowerCase().includes(q)||k.r.toLowerCase().includes(q)||k.d.sl.toLowerCase().includes(q)||k.d.en.toLowerCase().includes(q);
+    return mt&&mq;
+  });
+  const g=document.getElementById('klub-grid');
+  if(!list.length){g.innerHTML=`<div class="empty-msg">${T.empty[lang]}</div>`;return;}
+  g.innerHTML=list.map(k=>`
+    <div class="kcard">
+      <div class="kcard-top">
+        <div class="kdot ${k.t==='lions'?'kdot-lions':'kdot-leo'}">${k.t==='lions'?'🦁':'⭐'}</div>
+        <div>
+          <div class="kname">${k.n}</div>
+          <div class="kloc">📍 ${k.k} · ${k.r}</div>
+        </div>
+      </div>
+      <div class="kdesc">${k.d[lang]}</div>
+      <span class="kbadge ${k.t==='lions'?'kb-lions':'kb-leo'}">${T[k.t+'_badge'][lang]}</span>
+      <a class="klink" href="${k.url}" target="_blank" rel="noopener">🌐 ${T.more[lang]}</a>
+    </div>`).join('');
+}
+renderKlubi();
+
+// QR koda
+(function(){
+  const QR_URL = window.location.href!=='about:blank' ? window.location.href : 'https://www.lions.si';
+  document.getElementById('qr-url-display').textContent='📎 '+QR_URL;
+  const s=document.createElement('script');
+  s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+  s.onload=function(){
+    new QRCode(document.getElementById('qr-div'),{
+      text:QR_URL, width:220, height:220,
+      colorDark:'#1a4a2e', colorLight:'#ffffff',
+      correctLevel:QRCode.CorrectLevel.H
+    });
+  };
+  document.head.appendChild(s);
+})();
+
+// Scroll reveal
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
