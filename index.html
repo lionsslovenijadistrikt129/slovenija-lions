@@ -158,7 +158,18 @@ footer a:hover{text-decoration:underline}
 /* BILINGUAL LABEL */
 .bi-label{display:inline-block;background:rgba(200,168,75,0.15);border:1px solid var(--gold);color:var(--gold);border-radius:5px;font-size:10px;padding:1px 7px;margin-left:6px;vertical-align:middle;letter-spacing:0.05em}
 
-/* REVEAL */
+
+  .official-links { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 0.5rem; }
+  .off-link { display: flex; align-items: center; gap: 16px; padding: 1.5rem; border-radius: 14px; text-decoration: none; border: 2px solid; transition: transform 0.15s, opacity 0.15s; }
+  .off-link:hover { transform: translateY(-2px); opacity: 0.9; }
+  .lions-link { background: var(--gold-light); border-color: var(--gold); }
+  .leo-link { background: var(--leo-light); border-color: var(--leo-blue); }
+  .off-icon { font-size: 36px; flex-shrink: 0; }
+  .off-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .off-url { font-size: 13px; color: var(--sky); font-weight: 500; }
+  @media(max-width:500px){ .official-links { grid-template-columns: 1fr; } }
+
+  /* REVEAL */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity 0.55s ease,transform 0.55s ease}
 .reveal.visible{opacity:1;transform:none}
 
@@ -437,8 +448,8 @@ footer a:hover{text-decoration:underline}
     <div>
       <div class="lions-title">Zveza Lions klubov — Distrikt 129, Slovenija</div>
       <div class="lions-sub">
-        <span lang-content="sl">62 Lions klubov · ~1.400 članov · 19 Leo klubov · ~200 mladih članov<br>Slovenija je med državami z največjo gostoto Lions članov na število prebivalcev v Evropi.</span>
-        <span lang-content="en">62 Lions clubs · ~1,400 members · 19 Leo clubs · ~200 young members<br>Slovenia ranks among the highest Lions membership density per capita in Europe.</span>
+        <span lang-content="sl">62 Lions klubov · ~1.600 članov · 16 Leo klubov<br>Slovenija je med državami z največjo gostoto Lions članov na število prebivalcev v Evropi.</span>
+        <span lang-content="en">62 Lions clubs · ~1,600 members · 16 Leo clubs<br>Slovenia ranks among the highest Lions membership density per capita in Europe.</span>
       </div>
       <a class="lions-official-link" href="https://www.lions.si" target="_blank" rel="noopener">🌐 lions.si ↗</a>
     </div>
@@ -446,8 +457,8 @@ footer a:hover{text-decoration:underline}
 
   <div class="stats-row reveal">
     <div class="stat"><div class="stat-num" style="color:#7a4f00">62</div><div class="stat-lbl"><span lang-content="sl">Lions klubov</span><span lang-content="en">Lions clubs</span></div></div>
-    <div class="stat"><div class="stat-num" style="color:#1e4fa3">19</div><div class="stat-lbl"><span lang-content="sl">Leo klubov</span><span lang-content="en">Leo clubs</span></div></div>
-    <div class="stat"><div class="stat-num">~1.400</div><div class="stat-lbl"><span lang-content="sl">Lions članov</span><span lang-content="en">Lions members</span></div></div>
+    <div class="stat"><div class="stat-num" style="color:#1e4fa3">16</div><div class="stat-lbl"><span lang-content="sl">Leo klubov</span><span lang-content="en">Leo clubs</span></div></div>
+    <div class="stat"><div class="stat-num">~1.600</div><div class="stat-lbl"><span lang-content="sl">Lions članov</span><span lang-content="en">Lions members</span></div></div>
     <div class="stat"><div class="stat-num">35+</div><div class="stat-lbl"><span lang-content="sl">let delovanja</span><span lang-content="en">years active</span></div></div>
   </div>
 
@@ -457,16 +468,22 @@ footer a:hover{text-decoration:underline}
     <div class="quote-src">— Lions Clubs International · "We Serve"</div>
   </div>
 
-  <div class="search-wrap reveal">
-    <span class="search-icon">🔍</span>
-    <input type="text" id="ksearch" placeholder="🔍 Išči / Search club, kraj / city, regija / region..." oninput="renderKlubi()">
+  <div class="official-links reveal">
+    <a class="off-link lions-link" href="https://www.lions.si" target="_blank" rel="noopener">
+      <span class="off-icon">🦁</span>
+      <div>
+        <div class="off-title"><span lang-content="sl">Lions klubi Slovenije</span><span lang-content="en">Lions clubs of Slovenia</span></div>
+        <div class="off-url">lions.si ↗</div>
+      </div>
+    </a>
+    <a class="off-link leo-link" href="https://www.lions.si/leo-klubi/" target="_blank" rel="noopener">
+      <span class="off-icon">⭐</span>
+      <div>
+        <div class="off-title"><span lang-content="sl">Leo klubi Slovenije</span><span lang-content="en">Leo clubs of Slovenia</span></div>
+        <div class="off-url">lions.si/leo-klubi ↗</div>
+      </div>
+    </a>
   </div>
-  <div class="filter-row reveal">
-    <div class="filt on-all" id="f-vse" onclick="setFilt('vse')">🐾 <span lang-content="sl">Vsi klubi</span><span lang-content="en">All clubs</span></div>
-    <div class="filt" id="f-lions" onclick="setFilt('lions')">🦁 Lions</div>
-    <div class="filt" id="f-leo" onclick="setFilt('leo')">⭐ Leo</div>
-  </div>
-  <div class="klub-grid" id="klub-grid"></div>
 </section>
 
 <hr class="divider">
