@@ -193,16 +193,18 @@ footer a:hover{text-decoration:underline}
   </h1>
   <p class="hero-sub" lang-content="sl">Majhna po površini, velika po duši. Dežela, kjer Alpe segajo do Jadrana, kjer reke zbežijo v podzemlje in kjer vas čakajo odprti ljudje brez predsodkov.</p>
   <p class="hero-sub" lang-content="en">Small in size, great in spirit. A land where the Alps reach the Adriatic Sea, where rivers disappear underground and where open-hearted people welcome you without prejudice.</p>
-  <div class="hero-tags">
-    <span class="htag">🌲 <span lang-content="sl">Pristna narava</span><span lang-content="en">Authentic nature</span></span>
-    <span class="htag">🤝 <span lang-content="sl">Sožitje</span><span lang-content="en">Harmony</span></span>
-    <span class="htag">🌍 <span lang-content="sl">Srce Evrope</span><span lang-content="en">Heart of Europe</span></span>
-    <span class="htag">🦁 Lions Distrikt 129</span>
-    <span class="htag">⭐ Leo <span lang-content="sl">klubi</span><span lang-content="en">clubs</span></span>
+  <div class="hero-tags" style="flex-direction:column;align-items:center;gap:10px">
+    <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+      <span class="htag">🌲 <span lang-content="sl">Pristna narava</span><span lang-content="en">Authentic nature</span></span>
+      <span class="htag">🤝 <span lang-content="sl">Sožitje</span><span lang-content="en">Harmony</span></span>
+      <span class="htag">🌍 <span lang-content="sl">Srce Evrope</span><span lang-content="en">Heart of Europe</span></span>
+    </div>
+    <div style="display:flex;gap:8px;justify-content:center">
+      <span class="htag">🦁 Lions Distrikt 129</span>
+    </div>
   </div>
   <div class="hero-btns">
     <a href="#narava" class="btn-primary"><span lang-content="sl">Odkrijte Slovenijo ↓</span><span lang-content="en">Discover Slovenia ↓</span></a>
-    <a href="#lions" class="btn-outline">Lions &amp; Leo ↓</a>
     <a href="https://www.slovenia.info/en" target="_blank" rel="noopener" class="btn-outline">🌐 Visit Slovenia</a>
   </div>
 </div>
@@ -455,22 +457,7 @@ footer a:hover{text-decoration:underline}
     <div class="quote-src">— Lions Clubs International · "We Serve"</div>
   </div>
 
-  <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:0.5rem">
-    <a href="https://www.lions.si" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:16px;padding:1.5rem;border-radius:14px;text-decoration:none;background:#f7f0df;border:2px solid #c8a84b;transition:transform 0.15s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
-      <span style="font-size:36px;flex-shrink:0">🦁</span>
-      <div>
-        <div style="font-size:15px;font-weight:600;color:#1a1a1a;margin-bottom:4px"><span lang-content="sl">Lions klubi Slovenije</span><span lang-content="en">Lions clubs of Slovenia</span></div>
-        <div style="font-size:13px;color:#3a7bb5;font-weight:500">lions.si ↗</div>
-      </div>
-    </a>
-    <a href="https://www.lions.si/leo-klubi/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:16px;padding:1.5rem;border-radius:14px;text-decoration:none;background:#ddeafb;border:2px solid #1e4fa3;transition:transform 0.15s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
-      <span style="font-size:36px;flex-shrink:0">⭐</span>
-      <div>
-        <div style="font-size:15px;font-weight:600;color:#1a1a1a;margin-bottom:4px"><span lang-content="sl">Leo klubi Slovenije</span><span lang-content="en">Leo clubs of Slovenia</span></div>
-        <div style="font-size:13px;color:#3a7bb5;font-weight:500">lions.si/leo-klubi ↗</div>
-      </div>
-    </a>
-  </div>
+
 </section>
 
 <hr class="divider">
@@ -486,8 +473,11 @@ footer a:hover{text-decoration:underline}
       <span lang-content="sl">Skenirajte QR kodo in se takoj znajdete v srcu slovenske lepote — kjer koli na svetu.</span>
       <span lang-content="en">Scan the QR code and instantly discover the heart of Slovenia's beauty — anywhere in the world.</span>
     </div>
-    <div class="qr-url" id="qr-url-display">📎 lions.si</div>
-    <div class="qr-box"><div id="qr-div"></div></div>
+    <div class="qr-url" id="qr-url-display">📎 lionsslovenijadistrikt129.github.io/slovenija-lions/</div>
+    <div class="qr-box" style="background:white;border-radius:16px;padding:20px;display:inline-block;margin-bottom:1.5rem;box-shadow:0 0 30px rgba(0,0,0,0.2)">
+      <img src="data:image/png;base64,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" alt="QR koda" style="width:220px;height:220px;display:block">
+      <div style="margin-top:10px;font-size:11px;color:#1a4a2e;font-weight:600;text-align:center">lionsslovenijadistrikt129.github.io</div>
+    </div>
     <div><a href="https://www.lions.si" target="_blank" rel="noopener" class="btn-primary">🌐 lions.si ↗</a></div>
     <div class="qr-note">
       <span lang-content="sl">Ko objavite stran na spletu, QR koda samodejno pokaže vaš URL.</span>
