@@ -18,16 +18,15 @@ html{scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.7}
 
 /* LANG SWITCHER */
+  [lang-content="en"]{display:none}
+  [lang-content="sl"]{display:block}
+  body.lang-en [lang-content="en"]{display:block}
+  body.lang-en [lang-content="sl"]{display:none}
 .lang-bar{background:#111;display:flex;justify-content:flex-end;align-items:center;padding:6px 2rem;gap:8px}
 .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.7);border-radius:5px;padding:4px 12px;font-size:12px;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.15s}
 .lang-btn.active{background:var(--gold);border-color:var(--gold);color:#1a1a1a;font-weight:600}
 .lang-btn:hover:not(.active){background:rgba(255,255,255,0.1);color:#fff}
-[lang-content="en"]{display:none}
-[lang-content="sl"]{display:block}
-body.lang-en [lang-content="en"]{display:block}
-body.lang-en [lang-content="sl"]{display:none}
-
-/* NAV */
+body.lang-en body.lang-en /* NAV */
 nav{background:var(--green-deep);position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:56px;gap:1rem}
 .nav-brand{color:var(--gold);font-family:'Playfair Display',serif;font-size:17px;font-weight:600;white-space:nowrap;text-decoration:none}
 .nav-links{display:flex;gap:4px;flex-wrap:wrap}
@@ -159,8 +158,7 @@ footer a:hover{text-decoration:underline}
 .bi-label{display:inline-block;background:rgba(200,168,75,0.15);border:1px solid var(--gold);color:var(--gold);border-radius:5px;font-size:10px;padding:1px 7px;margin-left:6px;vertical-align:middle;letter-spacing:0.05em}
 
   /* REVEAL */
-.reveal{opacity:0;transform:translateY(18px);transition:opacity 0.55s ease,transform 0.55s ease}
-.reveal.visible{opacity:1;transform:none}
+.reveal{opacity:1;transform:none}
 
 @media(max-width:640px){nav{padding:0 1rem}.nav-links{display:none}.lions-header{flex-direction:column}}
 </style>
@@ -457,16 +455,22 @@ footer a:hover{text-decoration:underline}
     <div class="quote-src">— Lions Clubs International · "We Serve"</div>
   </div>
 
-  <div class="search-wrap reveal">
-    <span class="search-icon">🔍</span>
-    <input type="text" id="ksearch" placeholder="🔍 Išči / Search club, kraj / city, regija / region..." oninput="renderKlubi()">
+  <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:0.5rem">
+    <a href="https://www.lions.si" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:16px;padding:1.5rem;border-radius:14px;text-decoration:none;background:#f7f0df;border:2px solid #c8a84b;transition:transform 0.15s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+      <span style="font-size:36px;flex-shrink:0">🦁</span>
+      <div>
+        <div style="font-size:15px;font-weight:600;color:#1a1a1a;margin-bottom:4px"><span lang-content="sl">Lions klubi Slovenije</span><span lang-content="en">Lions clubs of Slovenia</span></div>
+        <div style="font-size:13px;color:#3a7bb5;font-weight:500">lions.si ↗</div>
+      </div>
+    </a>
+    <a href="https://www.lions.si/leo-klubi/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:16px;padding:1.5rem;border-radius:14px;text-decoration:none;background:#ddeafb;border:2px solid #1e4fa3;transition:transform 0.15s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+      <span style="font-size:36px;flex-shrink:0">⭐</span>
+      <div>
+        <div style="font-size:15px;font-weight:600;color:#1a1a1a;margin-bottom:4px"><span lang-content="sl">Leo klubi Slovenije</span><span lang-content="en">Leo clubs of Slovenia</span></div>
+        <div style="font-size:13px;color:#3a7bb5;font-weight:500">lions.si/leo-klubi ↗</div>
+      </div>
+    </a>
   </div>
-  <div class="filter-row reveal">
-    <div class="filt on-all" id="f-vse" onclick="setFilt('vse')">🐾 <span lang-content="sl">Vsi klubi</span><span lang-content="en">All clubs</span></div>
-    <div class="filt" id="f-lions" onclick="setFilt('lions')">🦁 Lions</div>
-    <div class="filt" id="f-leo" onclick="setFilt('leo')">⭐ Leo</div>
-  </div>
-  <div class="klub-grid" id="klub-grid"></div>
 </section>
 
 <hr class="divider">
@@ -661,9 +665,7 @@ renderKlubi();
   document.head.appendChild(s);
 })();
 
-// Scroll reveal
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
 </script>
 </body>
 </html>
